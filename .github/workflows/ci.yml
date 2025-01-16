@@ -31,7 +31,7 @@ jobs:
             ${{ runner.os }}-maven
 
       - name: Install Dependencies
-        run: mvn install -DskipTests
+        run: mvn --batch-mode install -DskipTests
 
       - name: Run Tests
-        run: mvn test -Dsuit=windowsChrome.xml
+        run: mvn --batch-mode test -Dsuite=windowsChrome.xml
