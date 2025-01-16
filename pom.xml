@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.belal</groupId>
+    <artifactId>WindowsChromeAutomation</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <!-- Selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.13.0</version>
+        </dependency>
+
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.7.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- LambdaTest Java Client -->
+<!--        <dependency>-->
+<!--            <groupId>com.lambdatest</groupId>-->
+<!--            <artifactId>lambdatest-java-client</artifactId>-->
+<!--            <version>1.0.4</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.github.lambdatest</groupId>
+            <artifactId>lambdatest-tunnel-binary</artifactId>
+            <version>1.0.8</version>
+        </dependency>
+<!--        rary &ndash;&gt;-->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20211205</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- Surefire Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <!-- Use the custom parameter for the TestNG suite file -->
+                        <!--suppress UnresolvedMavenProperty -->
+                        <suiteXmlFile>${suit}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
