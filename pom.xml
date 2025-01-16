@@ -19,18 +19,14 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- LambdaTest Java Client -->
-<!--        <dependency>-->
-<!--            <groupId>com.lambdatest</groupId>-->
-<!--            <artifactId>lambdatest-java-client</artifactId>-->
-<!--            <version>1.0.4</version>-->
-<!--        </dependency>-->
+        <!-- LambdaTest Tunnel Binary -->
         <dependency>
             <groupId>com.github.lambdatest</groupId>
             <artifactId>lambdatest-tunnel-binary</artifactId>
             <version>1.0.8</version>
         </dependency>
-<!--        rary &ndash;&gt;-->
+
+        <!-- JSON -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
@@ -39,6 +35,18 @@
     </dependencies>
     <build>
         <plugins>
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source> <!-- Java version 11 -->
+                    <target>11</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
             <!-- Surefire Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -46,13 +54,10 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <!-- Use the custom parameter for the TestNG suite file -->
-                        <!--suppress UnresolvedMavenProperty -->
                         <suiteXmlFile>${suit}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
