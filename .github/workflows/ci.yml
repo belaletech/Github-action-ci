@@ -34,4 +34,7 @@ jobs:
         run: mvn --batch-mode install -DskipTests
 
       - name: Run Tests
+        env:
+          LT_USERNAME: ${{ secrets.LT_USERNAME }}
+          LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
         run: mvn test -Dsuit=windowsChrome.xml

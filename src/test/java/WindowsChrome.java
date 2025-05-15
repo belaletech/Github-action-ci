@@ -20,8 +20,10 @@ public class WindowsChrome {
     @BeforeTest
     public void setup() throws Exception {
         // LambdaTest credentials
-        String username = "belalahmad";
-        String authkey = "4FulmpNtc5PUTEqK5FL9f7zN2UyL1tYu185gDaqylC2YLngKxH";
+//        String username = "belalahmad";
+//        String authkey = "4FulmpNtc5PUTEqK5FL9f7zN2UyL1tYu185gDaqylC2YLngKxH";
+        String username = System.getenv("LT_USERNAME");
+        String authkey = System.getenv("LT_ACCESS_KEY");
         String hub = "hub.lambdatest.com/wd/hub";
 //        Tunnel t;
 
