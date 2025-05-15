@@ -1,6 +1,7 @@
 name: Run TestNG Tests
 
 on:
+  workflow_dispatch:         # 👈 this enables manual runs from GitHub UI
   push:
     branches:
       - master
