@@ -37,7 +37,7 @@ public class WindowsChrome {
         ltOptions.put("build", "github action");
         ltOptions.put("project", "Belal");
         ltOptions.put("w3c", true); // Ensure W3C compliance
-        ltOptions.put("tunnel", true); // Enable the tunnel
+//        ltOptions.put("tunnel", true); // Enable the tunnel
 //        ltOptions.put("tunnelName", "belal"); // Specify the tunnel name
         ltOptions.put("console", true); // Enable console logs
         ltOptions.put("network", true); // Enable network logs
