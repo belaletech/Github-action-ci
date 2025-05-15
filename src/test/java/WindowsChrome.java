@@ -23,7 +23,7 @@ public class WindowsChrome {
         String username = "belalahmad";
         String authkey = "4FulmpNtc5PUTEqK5FL9f7zN2UyL1tYu185gDaqylC2YLngKxH";
         String hub = "hub.lambdatest.com/wd/hub";
-        Tunnel t;
+//        Tunnel t;
 
         // Set ChromeOptions with platform and browser version
         ChromeOptions browserOptions = new ChromeOptions();
@@ -36,18 +36,18 @@ public class WindowsChrome {
         ltOptions.put("project", "Belal");
         ltOptions.put("w3c", true); // Ensure W3C compliance
         ltOptions.put("tunnel", true); // Enable the tunnel
-        ltOptions.put("tunnelName", "belal"); // Specify the tunnel name
+//        ltOptions.put("tunnelName", "belal"); // Specify the tunnel name
         ltOptions.put("console", true); // Enable console logs
         ltOptions.put("network", true); // Enable network logs
         ltOptions.put("debug", true); // Enable debugging if needed
 
-        // Start the LambdaTest tunnel
-        t = new Tunnel();
-        HashMap<String, String> options = new HashMap<>();
-        options.put("user", username);
-        options.put("key", authkey);
-        options.put("tunnelName","belal");
-        t.start(options); // Starting the tunnel
+//        // Start the LambdaTest tunnel
+//        t = new Tunnel();
+//        HashMap<String, String> options = new HashMap<>();
+//        options.put("user", username);
+//        options.put("key", authkey);
+//        options.put("tunnelName","belal");
+//        t.start(options); // Starting the tunnel
 
         // Add ltOptions to ChromeOptions
         browserOptions.setCapability("LT:Options", ltOptions);
