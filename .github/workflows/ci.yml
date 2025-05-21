@@ -1,41 +1,41 @@
 name: Run TestNG Tests
 
 on:
-  workflow_dispatch:         # 👈 this enables manual runs from GitHub UI
-  push:
+  workflow_dispatch:         # 👈 Enables manual trigger of the workflow from the GitHub Actions UI
+  push:                      # 👈 Automatically triggers workflow on push to the master branch
     branches:
       - master
-  pull_request:
+  pull_request:              # 👈 Automatically triggers workflow on PRs targeting the master branch
     branches:
       - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest   # 👈 Uses the latest Ubuntu runner environment
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3   # 👈 Checks out the repository code so the workflow can access it
 
       - name: Set Up Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
-          java-version: '11'
+          distribution: 'temurin'    # 👈 Specifies the Java distribution (Temurin)
+          java-version: '11'        # 👈 Sets Java version to 11
 
       - name: Cache Maven Dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          path: ~/.m2/repository                     # 👈 Path to cache Maven dependencies
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}   # 👈 Unique cache key based on OS and pom.xml hash
           restore-keys: |
-            ${{ runner.os }}-maven
+            ${{ runner.os }}-maven                  # 👈 Fallback cache key if exact match not found
 
       - name: Install Dependencies
-        run: mvn --batch-mode install -DskipTests
+        run: mvn --batch-mode install -DskipTests   # 👈 Installs project dependencies without running tests
 
       - name: Run Tests
         env:
-          LT_USERNAME: ${{ secrets.LT_USERNAME }}
-          LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-        run: mvn test -Dsuit=windowsChrome.xml
+          LT_USERNAME: ${{ secrets.LT_USERNAME }}   # 👈 Uses stored secret for LambdaTest username
+          LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }} # 👈 Uses stored secret for LambdaTest access key
+        run: mvn test -Dsuit=windowsChrome.xml      # 👈 Runs TestNG tests using specified suite file (e.g., windowsChrome.xml)
